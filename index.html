@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Infinite Color</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="author" content="Sujauddin">
+    <meta name="description" content="Infinite color using JS">
+    <style media="screen">
+      *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+      }
+      *::before,*::after{
+        box-sizing:border-box;
+      }
+      section{
+        height:100vh;
+        font-size:5vw;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        color:#fff;
+        text-shadow: 3px 3px 10px #000;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <script>
+    let num = Number(prompt("Enter Number: "));
+    if(num<=2000){
+      let cl1 = 0;
+      let cl2 = 0;
+      let cl3 = 0;
+      for( let count = 1; count<=num; count++){
+        let a = document.createElement('section');
+        document.body.append(a);
+        a.style.backgroundColor='rgb(' + cl1 + ',' + cl2 + ',' + cl3 + ')';
+        a.textContent='rgb(' + cl1 + ',' + cl2 + ',' + cl3 + ')';
+        cl3+=20;
+        if(cl3>=255){
+          cl3=0;
+          cl2+=20;
+        }
+        if(cl2>=255){
+          cl2=0;
+          cl1+=20;
+        }
+        if(cl1>=255)
+        cl1=0;
+      }
+    }
+    else document.body.textContent="Refresh and enter small number";
+
+
+
+
+    </script>
+  </body>
+</html>
