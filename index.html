@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Infinite Color</title>
+    <title>Color Loops</title>
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Sujauddin">
     <meta name="description" content="Infinite color using JS">
@@ -14,6 +14,9 @@
       }
       *::before,*::after{
         box-sizing:border-box;
+      }
+      body{
+        background-color: #111;
       }
       section{
         height:100vh;
@@ -40,21 +43,47 @@
         document.body.append(a);
         a.style.backgroundColor='rgb(' + cl1 + ',' + cl2 + ',' + cl3 + ')';
         a.textContent='rgb(' + cl1 + ',' + cl2 + ',' + cl3 + ')';
-        cl3+=20;
-        if(cl3>=255){
-          cl3=0;
-          cl2+=20;
-        }
-        if(cl2>=255){
-          cl2=0;
-          cl1+=20;
-        }
-        if(cl1>=255)
-        cl1=0;
+        if(1){
+          cl3+=17;
+          if(cl3>100)
+          cl2+=17;
+          if(cl2>100)
+          cl1+=17;
+          if(cl1>255) cl1 =0;
+          if(cl2>255) cl2 =0;
+          if(cl3>255) cl3 =0;
+          }
+
+
+
       }
     }
-    else document.body.textContent="Refresh and enter small number";
+    else {
+      let np = document.createElement('p');
+      np.textContent="Refresh and enter small number";
+      np.style.color='#dddddd';
+      np.style.fontSize='40px';
+      np.style.marginTop='20vh';
+      np.style.textAlign='center';
+      document.body.append(np);
 
+      let na = document.createElement('a');
+      na.setAttribute('href' , 'https://sujaudd1n.github.io');
+      na.setAttribute('target' , '_blank')
+      na.setAttribute('rel' , 'noreferer noopener')
+      na.textContent="You may visit";
+      na.style.color='#27e05e';
+      na.style.textDecoration='none';
+      na.style.fontSize='20px';
+      na.style.marginTop='30px';
+      na.style.display='block';
+      na.style.textAlign='center';
+
+
+      document.body.append(na);
+
+    }
+    
 
 
 
