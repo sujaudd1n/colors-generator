@@ -17,30 +17,45 @@
       }
       body{
         background-color: #111;
+  
       }
-      section{
-        height:100vh;
-        font-size:5vw;
+      article{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      section:not(.ss){
+        height: 33vh;
+        min-height: 250px;
+        font-size:calc( 2vw + 0.5vh);
         display:flex;
         justify-content: center;
         align-items: center;
         color:#fff;
-        text-shadow: 3px 3px 10px #000;
+        text-shadow: 2px 2px 0px #000;
+      }
+      @media (max-width:480px){
+        article{
+        grid-template-columns: 1fr 1fr;
+      }
       }
     </style>
 
   </head>
   <body>
+    <article>
+
+    </article>
 
     <script>
+      let art = document.querySelector('article');
     let num = Number(prompt("Enter number (example: 900): "));
-    if(num<=2000 && num!=0){
-      let cl1 = 0;
-      let cl2 = 0;
-      let cl3 = 0;
+    if(num<=5000 && num!=0){
+      let cl1 = 45;
+      let cl2 = 134;
+      let cl3 = 90;
       for( let count = 1; count<=num; count++){
         let a = document.createElement('section');
-        document.body.append(a);
+        art.append(a);
         a.style.backgroundColor='rgb(' + cl1 + ',' + cl2 + ',' + cl3 + ')';
         a.textContent='rgb(' + cl1 + ',' + cl2 + ',' + cl3 + ')';
         if(1){
@@ -67,6 +82,14 @@
       np.style.textAlign='center';
       document.body.append(np);
 
+      let np2 = document.createElement('p');
+      np2.textContent="";
+      np2.style.color='#dddddd';
+      np2.style.fontSize='40px';
+      np2.style.marginTop='30px';
+      np2.style.textAlign='center';
+      document.body.append(np2);
+
       let na = document.createElement('a');
       na.setAttribute('href' , 'https://sujaudd1n.github.io');
       na.setAttribute('target' , '_blank')
@@ -75,12 +98,7 @@
       na.style.color='#27e05e';
       na.style.textDecoration='none';
       na.style.fontSize='20px';
-      na.style.marginTop='30px';
-      na.style.display='block';
-      na.style.textAlign='center';
-
-
-      document.body.append(na);
+      np2.append(na);
 
     }
     
